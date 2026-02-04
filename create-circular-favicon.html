@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Circular Favicon</title>
+</head>
+<body>
+    <h2>Creating Circular Favicon...</h2>
+    <canvas id="canvas" width="512" height="512" style="display:none;"></canvas>
+    <img id="preview" style="width: 128px; height: 128px; border-radius: 50%;">
+    <br><br>
+    <a id="download" download="favicon-circular.png">
+        <button>Download Circular Favicon</button>
+    </a>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const img = new Image();
+        
+        img.onload = function() {
+            const size = 512;
+            canvas.width = size;
+            canvas.height = size;
+            
+            // Create circular clip
+            ctx.beginPath();
+            ctx.arc(size/2, size/2, size/2, 0, Math.PI * 2);
+            ctx.closePath();
+            ctx.clip();
+            
+            // Draw image
+            ctx.drawImage(img, 0, 0, size, size);
+            
+            // Convert to PNG
+            canvas.toBlob(function(blob) {
+                const url = URL.createObjectURL(blob);
+                document.getElementById('preview').src = url;
+                document.getElementById('download').href = url;
+                
+                // Auto download
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'favicon-circular.png';
+                a.click();
+            });
+        };
+        
+        img.src = '/src/assets/tektonic.png';
+    </script>
+</body>
+</html>

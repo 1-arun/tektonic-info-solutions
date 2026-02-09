@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ContactFormDialog } from "@/components/ContactFormDialog";
 import tektonicLogo from "@/assets/tektonic.png";
 
 const navLinks = [
@@ -61,9 +62,13 @@ export const Navbar = () => {
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center gap-4">
-            <Button variant="hero" size="lg">
-              Get Started
-            </Button>
+            <ContactFormDialog
+              trigger={
+                <Button variant="hero" size="lg">
+                  Get Started
+                </Button>
+              }
+            />
           </div>
 
           {/* Mobile Menu Button */}

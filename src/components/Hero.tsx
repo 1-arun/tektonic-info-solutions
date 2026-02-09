@@ -1,6 +1,7 @@
-import { ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import heroBg from '@/assets/hero-bg.jpg';
+import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ContactFormDialog } from "@/components/ContactFormDialog";
+import heroBg from "@/assets/hero-bg.jpg";
 
 export const Hero = () => {
   return (
@@ -13,8 +14,8 @@ export const Hero = () => {
         className="absolute inset-0 z-0"
         style={{
           backgroundImage: `url(${heroBg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       />
 
@@ -37,7 +38,7 @@ export const Hero = () => {
 
           {/* Main Heading */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 animate-fade-in-up">
-            Transforming Ideas Into{' '}
+            Transforming Ideas Into{" "}
             <span className="gradient-text text-shadow-glow">
               Digital Excellence
             </span>
@@ -46,40 +47,49 @@ export const Hero = () => {
           {/* Subheading */}
           <p
             className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 animate-fade-in-up"
-            style={{ animationDelay: '0.2s' }}
+            style={{ animationDelay: "0.2s" }}
           >
-            We deliver cutting-edge software solutions, cloud infrastructure, and
-            digital transformation services that drive business growth and
+            We deliver cutting-edge software solutions, cloud infrastructure,
+            and digital transformation services that drive business growth and
             innovation.
           </p>
 
           {/* CTA Buttons */}
           <div
             className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up"
-            style={{ animationDelay: '0.4s' }}
+            style={{ animationDelay: "0.4s" }}
           >
-            <Button variant="hero" size="xl">
-              Start Your Project
-              <ArrowRight className="w-5 h-5" />
-            </Button>
-            <Button variant="hero-outline" size="xl">
-              Explore Our Work
-            </Button>
+            <ContactFormDialog
+              trigger={
+                <Button variant="hero" size="xl">
+                  Start Your Project
+                  <ArrowRight className="w-5 h-5" />
+                </Button>
+              }
+            />
           </div>
 
           {/* Trust Indicators */}
           <div
             className="mt-16 pt-8 border-t border-border/30 animate-fade-in-up"
-            style={{ animationDelay: '0.6s' }}
+            style={{ animationDelay: "0.6s" }}
           >
             <p className="text-muted-foreground text-sm mb-4">
               Trusted by industry leaders worldwide
             </p>
             <div className="flex flex-wrap items-center justify-center gap-8 opacity-60">
-              <span className="text-foreground font-semibold text-lg">TechCorp</span>
-              <span className="text-foreground font-semibold text-lg">InnovatePro</span>
-              <span className="text-foreground font-semibold text-lg">DataFlow</span>
-              <span className="text-foreground font-semibold text-lg">CloudScale</span>
+              <span className="text-foreground font-semibold text-lg">
+                TechCorp
+              </span>
+              <span className="text-foreground font-semibold text-lg">
+                InnovatePro
+              </span>
+              <span className="text-foreground font-semibold text-lg">
+                DataFlow
+              </span>
+              <span className="text-foreground font-semibold text-lg">
+                CloudScale
+              </span>
             </div>
           </div>
         </div>

@@ -1,9 +1,10 @@
-import { useState, useEffect, useCallback } from 'react';
-import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import heroSlide1 from '@/assets/hero-slide-1.jpg';
-import heroSlide2 from '@/assets/hero-slide-2.jpg';
-import heroSlide3 from '@/assets/hero-slide-3.jpg';
+import { useState, useEffect, useCallback } from "react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ContactFormDialog } from "@/components/ContactFormDialog";
+import heroSlide1 from "@/assets/hero-slide-1.jpg";
+import heroSlide2 from "@/assets/hero-slide-2.jpg";
+import heroSlide3 from "@/assets/hero-slide-3.jpg";
 
 interface Slide {
   id: number;
@@ -18,36 +19,35 @@ const slides: Slide[] = [
     image: heroSlide1,
     heading: (
       <>
-        Transforming Ideas Into{' '}
+        Transforming Ideas Into{" "}
         <span className="text-primary">Digital Excellence</span>
       </>
     ),
     subheading:
-      'We build modern software solutions that drive innovation and business growth.',
+      "We build modern software solutions that drive innovation and business growth.",
   },
   {
     id: 2,
     image: heroSlide2,
     heading: (
       <>
-        Leading with <span className="text-primary">Strategy</span>,{' '}
+        Leading with <span className="text-primary">Strategy</span>,{" "}
         <span className="text-primary">Creativity</span>, and Technology
       </>
     ),
     subheading:
-      'Empowering businesses with scalable digital products and smart engineering.',
+      "Empowering businesses with scalable digital products and smart engineering.",
   },
   {
     id: 3,
     image: heroSlide3,
     heading: (
       <>
-        Your Trusted{' '}
-        <span className="text-primary">Software Development</span> Partner
+        Your Trusted <span className="text-primary">Software Development</span>{" "}
+        Partner
       </>
     ),
-    subheading:
-      'From concept to launch, we deliver future-ready applications.',
+    subheading: "From concept to launch, we deliver future-ready applications.",
   },
 ];
 
@@ -62,7 +62,7 @@ export const HeroCarousel = () => {
       setCurrentSlide(index);
       setTimeout(() => setIsAnimating(false), 500);
     },
-    [isAnimating]
+    [isAnimating],
   );
 
   const nextSlide = useCallback(() => {
@@ -86,7 +86,7 @@ export const HeroCarousel = () => {
         <div
           key={slide.id}
           className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
-            index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
+            index === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
           }`}
         >
           {/* Background Image */}
@@ -94,8 +94,8 @@ export const HeroCarousel = () => {
             className="absolute inset-0"
             style={{
               backgroundImage: `url(${slide.image})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
+              backgroundSize: "cover",
+              backgroundPosition: "center",
             }}
           />
 
@@ -116,8 +116,8 @@ export const HeroCarousel = () => {
               key={slide.id}
               className={`transition-all duration-500 ${
                 index === currentSlide
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-8 absolute inset-0 pointer-events-none'
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-8 absolute inset-0 pointer-events-none"
               }`}
             >
               {index === currentSlide && (
@@ -125,7 +125,7 @@ export const HeroCarousel = () => {
                   {/* Heading */}
                   <h1
                     className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-foreground animate-fade-in"
-                    style={{ textShadow: '0 0 40px rgba(0,0,0,0.5)' }}
+                    style={{ textShadow: "0 0 40px rgba(0,0,0,0.5)" }}
                   >
                     {slide.heading}
                   </h1>
@@ -133,7 +133,7 @@ export const HeroCarousel = () => {
                   {/* Subheading */}
                   <p
                     className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 animate-fade-in"
-                    style={{ animationDelay: '0.2s' }}
+                    style={{ animationDelay: "0.2s" }}
                   >
                     {slide.subheading}
                   </p>
@@ -141,15 +141,16 @@ export const HeroCarousel = () => {
                   {/* CTA Buttons */}
                   <div
                     className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in"
-                    style={{ animationDelay: '0.4s' }}
+                    style={{ animationDelay: "0.4s" }}
                   >
-                    <Button variant="hero" size="xl">
-                      Start Your Project
-                      <ArrowRight className="w-5 h-5" />
-                    </Button>
-                    <Button variant="hero-outline" size="xl">
-                      Explore Our Work
-                    </Button>
+                    <ContactFormDialog
+                      trigger={
+                        <Button variant="hero" size="xl">
+                          Start Your Project
+                          <ArrowRight className="w-5 h-5" />
+                        </Button>
+                      }
+                    />
                   </div>
                 </>
               )}
@@ -182,8 +183,8 @@ export const HeroCarousel = () => {
             onClick={() => goToSlide(index)}
             className={`transition-all duration-300 rounded-full ${
               index === currentSlide
-                ? 'w-10 h-3 bg-primary'
-                : 'w-3 h-3 bg-foreground/30 hover:bg-foreground/50'
+                ? "w-10 h-3 bg-primary"
+                : "w-3 h-3 bg-foreground/30 hover:bg-foreground/50"
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />

@@ -71,10 +71,10 @@ export const Footer = () => {
             <div>
               <h4 className="text-foreground font-semibold mb-2">Email Us</h4>
               <a
-                href="mailto:info@nidhishatechnologies.com"
+                href="mailto:info@tektonicinfo.com"
                 className="text-muted-foreground text-sm hover:text-primary transition-colors"
               >
-                info@nidhishatechnologies.com
+                info@tektonicinfo.com
               </a>
             </div>
           </div>

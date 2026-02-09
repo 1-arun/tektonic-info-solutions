@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ContactFormDialog } from "@/components/ContactFormDialog";
 
 export const Contact = () => {
   return (
@@ -29,29 +30,14 @@ export const Contact = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button variant="hero" size="xl">
-              Schedule a Consultation
-              <ArrowRight className="w-5 h-5" />
-            </Button>
-            <Button variant="hero-outline" size="xl">
-              Contact Us
-            </Button>
-          </div>
-
-          {/* Contact Info */}
-          <div className="mt-12 pt-8 border-t border-border/30 grid grid-cols-1 sm:grid-cols-3 gap-6">
-            <div>
-              <p className="text-muted-foreground text-sm mb-1">Email</p>
-              <p className="text-foreground font-medium">hello@tektonic.com</p>
-            </div>
-            <div>
-              <p className="text-muted-foreground text-sm mb-1">Phone</p>
-              <p className="text-foreground font-medium">+91 98765 43210</p>
-            </div>
-            <div>
-              <p className="text-muted-foreground text-sm mb-1">Location</p>
-              <p className="text-foreground font-medium">Bangalore, India</p>
-            </div>
+            <ContactFormDialog
+              trigger={
+                <Button variant="hero" size="xl">
+                  Schedule a Consultation
+                  <ArrowRight className="w-5 h-5" />
+                </Button>
+              }
+            />
           </div>
         </div>
       </div>

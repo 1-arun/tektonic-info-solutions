@@ -22,9 +22,15 @@ import { Label } from "@/components/ui/label";
 
 interface ContactFormDialogProps {
   trigger: React.ReactNode;
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
 }
 
-export const ContactFormDialog = ({ trigger }: ContactFormDialogProps) => {
+export const ContactFormDialog = ({
+  trigger,
+  open,
+  onOpenChange,
+}: ContactFormDialogProps) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -68,7 +74,7 @@ export const ContactFormDialog = ({ trigger }: ContactFormDialogProps) => {
   };
 
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
       <DialogContent className="sm:max-w-[600px] bg-card border-border/50 backdrop-blur-xl">
         <DialogHeader>

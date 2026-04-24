@@ -54,6 +54,7 @@ const slides: Slide[] = [
 export const HeroCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isContactDialogOpen, setIsContactDialogOpen] = useState(false);
 
   const goToSlide = useCallback(
     (index: number) => {
@@ -75,9 +76,11 @@ export const HeroCarousel = () => {
 
   // Auto-slide every 5 seconds
   useEffect(() => {
+    if (isContactDialogOpen) return;
+
     const interval = setInterval(nextSlide, 5000);
     return () => clearInterval(interval);
-  }, [nextSlide]);
+  }, [nextSlide, isContactDialogOpen]);
 
   return (
     <section id="home" className="relative w-full h-screen overflow-hidden">
@@ -144,6 +147,8 @@ export const HeroCarousel = () => {
                     style={{ animationDelay: "0.4s" }}
                   >
                     <ContactFormDialog
+                      open={isContactDialogOpen}
+                      onOpenChange={setIsContactDialogOpen}
                       trigger={
                         <Button variant="hero" size="xl">
                           Start Your Project
